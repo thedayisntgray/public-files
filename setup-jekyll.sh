@@ -28,6 +28,9 @@ OTHER_PUBLIC_KEYS_TO_ADD=(
 # Add sudo user and grant privileges
 useradd --create-home --shell "/bin/bash" --groups sudo "${USERNAME}"
 
+# Allow created user to run commands without typing the password
+echo 'dummy ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
+
 # Check whether the root account has a real password set
 encrypted_root_pw="$(grep root /etc/shadow | cut --delimiter=: --fields=2)"
 
