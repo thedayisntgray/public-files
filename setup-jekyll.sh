@@ -83,10 +83,12 @@ sudo apt -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo apt -y install make build-essential ruby ruby-dev
 
+# Add Exports to USERS home directory
+cd "/home/${USERNAME}/"
 echo "export GEM_HOME=$HOME/gems" | sudo tee .bashrc
 echo "export PATH=$HOME/gems/bin:$PATH" | sudo tee .bashrc
+source .bashrc
 
-source ~/.bashrc
 sudo gem install jekyll bundler
 jekyll new client-site
 cd client-site
