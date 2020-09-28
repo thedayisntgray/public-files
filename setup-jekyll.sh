@@ -89,6 +89,9 @@ echo "export GEM_HOME=$HOME/gems" | sudo tee .bashrc
 echo "export PATH=$HOME/gems/bin:$PATH" | sudo tee .bashrc
 source .bashrc
 
+# wait for networking to finish initializing
+cloud-init status --wait  > /dev/null 2>&1
+
 sudo gem install jekyll bundler
 jekyll new client-site
 cd client-site
