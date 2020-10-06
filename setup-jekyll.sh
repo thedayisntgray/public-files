@@ -25,9 +25,6 @@ OTHER_PUBLIC_KEYS_TO_ADD=(
 ### SCRIPT LOGIC ###
 ####################
 
-#attempt to install this sooner?
-gem install jekyll bundler
-
 # Add sudo user and grant privileges
 useradd --create-home --shell "/bin/bash" --groups sudo "${USERNAME}"
 
@@ -96,11 +93,13 @@ echo "Wait for networking to finish initializing"
 # wait for networking to finish initializing
 cloud-init status --wait  > /dev/null 2>&1
 
+sleep 120
+
 #echo "Installing bundler..."
-#sudo gem install bundler
+sudo gem install bundler
 
 #echo "Installing jekyll..."
-#sudo gem install jekyll
+sudo gem install jekyll
 
 echo "Building jekyll site..."
 jekyll new client-site
