@@ -89,11 +89,10 @@ echo "export GEM_HOME=$HOME/gems" | sudo tee .bashrc
 echo "export PATH=$HOME/gems/bin:$PATH" | sudo tee .bashrc
 source .bashrc
 
-echo "Wait for networking to finish initializing"
+#echo "Wait for networking to finish initializing"
 # wait for networking to finish initializing
-cloud-init status --wait  > /dev/null 2>&1
+#cloud-init status --wait  > /dev/null 2>&1
 
-sleep 120
 
 #echo "Installing bundler..."
 sudo gem install bundler
